@@ -26,7 +26,7 @@ namespace FullStackAuth_WebAPI.Controllers
             try
             {
                 string userId = User.FindFirstValue("id");
-                var favorites = _context.Favorites.Where(f => f.UserId.Equals(userId)).Where(f => f.BookId.Equals(id));
+                var favorites = _context.Favorites.Where(f => f.UserId.Equals(userId)).Where(f => f.CocktailId.Equals(id));
                 bool favorited;
                 if (favorites.FirstOrDefault() != null)
                 {
