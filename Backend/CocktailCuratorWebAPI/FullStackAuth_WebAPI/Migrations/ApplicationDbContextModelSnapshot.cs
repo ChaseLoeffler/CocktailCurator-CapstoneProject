@@ -73,23 +73,23 @@ namespace FullStackAuth_WebAPI.Migrations
 
             modelBuilder.Entity("FullStackAuth_WebAPI.Models.Favorite", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("CocktailId")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("ThumbnailUrl")
+                    b.Property<string>("Name")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Title")
+                    b.Property<string>("ThumbnailUrl")
                         .HasColumnType("longtext");
 
                     b.Property<string>("UserId")
                         .HasColumnType("varchar(255)");
 
-                    b.HasKey("id");
+                    b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
@@ -194,13 +194,13 @@ namespace FullStackAuth_WebAPI.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "4baa30a3-22eb-45f1-b1ea-843db22142b3",
+                            Id = "b3c65ec0-ac8f-4a2f-8916-537a482f8936",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "8d163584-8364-4e94-a0bc-64c2118c0d1e",
+                            Id = "179e74c8-bd6f-42a3-890d-92362d8a718f",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });

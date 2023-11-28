@@ -6,9 +6,9 @@ namespace FullStackAuth_WebAPI.Models
     public class Favorite
     {
         [Key]
-        public int id { get; set; }
+        public int Id { get; set; }
         public string CocktailId { get; set; }
-        public string Title { get; set; }
+        public string Name { get; set; }
         public string ThumbnailUrl { get; set; }
 
         [ForeignKey("User")]
