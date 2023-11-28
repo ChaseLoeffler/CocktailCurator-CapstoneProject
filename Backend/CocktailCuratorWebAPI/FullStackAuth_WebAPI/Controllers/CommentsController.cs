@@ -104,7 +104,6 @@ namespace FullStackAuth_WebAPI.Controllers
                 _context.Comments.Remove(comment);
                 _context.SaveChanges();
                 return StatusCode(404);
-
             }
             catch (Exception ex)
             {
