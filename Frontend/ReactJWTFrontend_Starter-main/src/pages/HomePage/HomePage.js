@@ -1,42 +1,44 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useState, useEffect } from 'react';
 import useAuth from "../../hooks/useAuth";
-
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
-  // The "user" value from this Hook contains user information (id, userName, email) from the decoded token
-  // The "token" value is the JWT token sent from the backend that you will send back in the header of any request requiring authentication
   const [user, token] = useAuth();
-  const [cars, setCars] = useState([]);
+  const [popularC, setPop] =useState([]);
 
-  useEffect(() => {
-    fetchCars();
+  useEffect(()=>{
+    fetchPop();
   }, [token]);
 
-  const fetchCars = async () => {
-    try {
-      let response = await axios.get("https://localhost:5001/api/cars/myCars", {
+  const fetchPop = async () => {
+    try{
+      let response = await axios.get(`https://the-cocktail-db.p.rapidapi.com/popular.php`, {
         headers: {
-          Authorization: "Bearer " + token,
+          'X-RapidAPI-Key': '83fc370ec5mshfafd14dfd77a29fp100ab0jsn61bda3159568',
+          'X-RapidAPI-Host': 'the-cocktail-db.p.rapidapi.com'
         },
       });
-      setCars(response.data);
-    } catch (error) {
-      console.log(error.response.data);
+      setPop(response.data)
+    } catch (err) {
+      console.log(err.message)
     }
   };
+
+  const popularList = popularC?.drinks?.map((cocktail) => (
+    <div key={cocktail.idDrink}>
+      <p><Link to={`/CocktailDetails/${cocktail.idDrink}`}><img src={cocktail.strDrinkThumb}/>{cocktail.strDrink}</Link></p>
+    </div>
+  ));
 
   return (
     <div className="container">
       {console.log(user)}
-      <h1>Home Page for {user.userName}!</h1>
-      {cars &&
-        cars.map((car) => (
-          <p key={car.id}>
-            {car.year} {car.model} {car.make}
-          </p>
-        ))}
+      <h1>Welcome to Cocktail Curator {user.userName}!</h1>
+      <p>Here you can find Popular cocktails to check out as well as cocktails suggestions based on your favorites and ratings.</p>
+      <h2>Popular Cocktails</h2>
+      <div>{popularList}</div>
+      <h2>Suggested Cocktails</h2>
     </div>
   );
 };
