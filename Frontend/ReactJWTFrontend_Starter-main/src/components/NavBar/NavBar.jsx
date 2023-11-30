@@ -16,6 +16,39 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
+        {user ? (
+            <Link to="/search" style={{ textDecoration: "none", color: "white" }}>
+              <p>Search</p>
+            </Link>
+          ) : (
+            <Link to="/login" style={{ textDecoration: "none", color: "white" }}>
+              <p>Search</p>
+            </Link>
+          )}
+        </li>
+        <li>
+        {user ? (
+            <Link to="/Favorites" style={{ textDecoration: "none", color: "white" }}>
+              <p>Favorites</p>
+            </Link>
+          ) : (
+            <Link to="/login" style={{ textDecoration: "none", color: "white" }}>
+              <p>Favorites</p>
+            </Link>
+          )}
+        </li>
+        <li>
+        {user ? (
+            <Link to="/ByIngredient" style={{ textDecoration: "none", color: "white" }}>
+              <p>By Ingredient</p>
+            </Link>
+          ) : (
+            <Link to="/login" style={{ textDecoration: "none", color: "white" }}>
+              <p>By Ingredient</p>
+            </Link>
+          )}
+        </li>
+        <li>
           {user ? (
             <button onClick={logoutUser}>Logout</button>
           ) : (

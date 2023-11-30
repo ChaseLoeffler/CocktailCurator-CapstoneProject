@@ -6,8 +6,7 @@ const FavoritesList = ({favorited}) => {
     const list = favorited?.map( favorite =>(
         
         <li key={favorite?.id}>
-            <img src={favorite?.thumbnailUrl}/>
-            <Link to={`/CocktailDetails/${favorite?.cocktailId}`}>{favorite?.name}</Link>
+            <Link to={`/CocktailDetails/${favorite?.cocktailId}`}><img src={favorite?.thumbnailUrl}/>{favorite?.name}</Link>
         </li>
        
     ));
