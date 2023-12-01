@@ -14,6 +14,7 @@ import Footer from "./components/Footer/Footer";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
+import CocktailDetails from "./pages/CocktailDetailsPage/CocktailDetailsPage";
 
 function App() {
   return (
@@ -33,6 +34,14 @@ function App() {
           element={
             <PrivateRoute>
               <FavoritesPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/CocktailDetails/:cocktailId/"
+          element={
+            <PrivateRoute>
+              <CocktailDetails/>
             </PrivateRoute>
           }
         />

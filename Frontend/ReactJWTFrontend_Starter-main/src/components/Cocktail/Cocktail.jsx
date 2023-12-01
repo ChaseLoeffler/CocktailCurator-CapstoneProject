@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import IngredientsList from "../../components/IngredientsList/IngredientList";
 
 
 
@@ -72,28 +72,17 @@ const Cocktail = ({cocktailId,token,cocktailInfo}) => {
     }
 
 
-
-
-
     return ( 
         <div>
             <div>
                 <div>
-                    <img src ={cocktailInfo?.image}/>
+                    <img src ={cocktailInfo?.drinks[0]?.strDrinkThumb}/>
                 </div>
-                <h3>{cocktailInfo?.title}</h3>
-                <h4>
-                    diffculty: {cocktailInfo?.diffculty}
-                    Portion: {cocktailInfo?.portion}
-                    Time: {cocktailInfo?.time}
-                    Description: {cocktailInfo?.description}
-                </h4>
-                <ul>
-                    <li>
-
-                    </li>
-                </ul>
-
+                <h3>{cocktailInfo?.drinks[0]?.strDrink}</h3>
+                <h4>Ingredients:</h4>
+                <div>
+                    <IngredientsList cocktailInfo={cocktailInfo}/>
+                </div>
                 <p></p>
             </div>
         </div>
