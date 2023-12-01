@@ -78,12 +78,13 @@ const Cocktail = ({cocktailId,token,cocktailInfo}) => {
                 <div>
                     <img src ={cocktailInfo?.drinks[0]?.strDrinkThumb}/>
                 </div>
-                <h3>{cocktailInfo?.drinks[0]?.strDrink}</h3>
+                <h2>{cocktailInfo?.drinks[0]?.strDrink}</h2>
                 <h4>Ingredients:</h4>
                 <div>
                     <IngredientsList cocktailInfo={cocktailInfo}/>
                 </div>
-                <p></p>
+                <h4>Instructions:</h4>
+                <p>{cocktailInfo?.drinks[0]?.strInstructions}</p>
             </div>
         </div>
     );
