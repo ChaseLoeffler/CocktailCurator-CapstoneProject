@@ -16,7 +16,7 @@ const IngredientList = ({cocktailInfo}) => {
             delete ingreMeasurements[`${item}`];
         }
     }
-    console.log(ingreMeasurements);
+    
 
     let ingreNames = {};
     for (const thing in info){
@@ -31,24 +31,24 @@ const IngredientList = ({cocktailInfo}) => {
             delete ingreNames[`${item}`];
         }
     }
-    console.log(ingreNames);
+    
     
     let ingredients = Object.values(ingreNames);
-    console.log(ingredients);
+    
 
     let measurements = Object.values(ingreMeasurements);
-    console.log(measurements);
+    
 
-    const measList = measurements?.map(el=>(
-        <p>{el}:</p>
+    const measList = measurements?.map((el,index)=>(
+        <p key={index}>{el}:</p>
     ));
-    const ingrList = ingredients.map(el =>(
-        <p>{el}</p>
+    const ingrList = ingredients.map((el,index) =>(
+        <p key={index}>{el}</p>
     ));
     return (
         <div>
-            <ul style={{"justify-content": "flex-start"}}>
-                <li style={{"padding-right": "1rem"}}>
+            <ul style={{"justifyContent": "flex-start"}}>
+                <li style={{"paddingRight": "1rem"}}>
                 {measList}
                 </li>
                 <li>

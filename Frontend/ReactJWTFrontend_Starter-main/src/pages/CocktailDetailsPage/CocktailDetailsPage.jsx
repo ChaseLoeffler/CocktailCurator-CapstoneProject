@@ -6,7 +6,7 @@ import CommentForm from '../../components/CommentForm/CommentForm'
 import useAuth from '../../hooks/useAuth';
 import axios from 'axios';
 
-const CocktailDetails = (props) => {
+const CocktailDetailsPage = (props) => {
     const {cocktailId} = useParams();
     const [user,token] =useAuth();
     const [cocktailData, setData] = useState();
@@ -60,4 +60,4 @@ const CocktailDetails = (props) => {
     );
 }
  
-export default CocktailDetails;
+export default CocktailDetailsPage;

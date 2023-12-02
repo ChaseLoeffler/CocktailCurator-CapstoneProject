@@ -17,7 +17,7 @@ const Navbar = () => {
         </li>
         <li>
         {user ? (
-            <Link to="/search" style={{ textDecoration: "none", color: "white" }}>
+            <Link to="/Search" style={{ textDecoration: "none", color: "white" }}>
               <p>Search</p>
             </Link>
           ) : (
