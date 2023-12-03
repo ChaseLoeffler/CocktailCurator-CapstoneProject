@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import Suggestions from '../../components/Suggestions/Suggestions';
 
 const HomePage = () => {
   const [user, token] = useAuth();
@@ -38,8 +39,7 @@ const HomePage = () => {
       <p>Here you can find Popular cocktails to check out as well as cocktails suggestions based on your favorites and ratings.</p>
       <h2>Popular Cocktails</h2>
       <div>{popularList}</div>
-      <h2>Suggested Cocktails</h2>
-      
+      <Suggestions token={token}/>
     </div>
   );
 };

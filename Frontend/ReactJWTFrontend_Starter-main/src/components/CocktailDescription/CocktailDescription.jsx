@@ -23,7 +23,7 @@ const CocktailDescription = ({cocktailInfo}) => {
             console.log(resp.data);
             setList(resp.data);
             let info = secCList?.filter(item => {
-                if (item.title.includes(cocktailInfo?.drinks[0]?.strDrink)){
+                if (item.title.toLowerCase().includes(cocktailInfo?.drinks[0]?.strDrink.toLowerCase())){
                     return true;
                 }else{
                     return false;

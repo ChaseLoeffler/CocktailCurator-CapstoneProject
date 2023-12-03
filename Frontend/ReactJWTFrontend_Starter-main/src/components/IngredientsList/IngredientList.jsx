@@ -6,7 +6,6 @@ const IngredientList = ({cocktailInfo}) => {
     let ingreMeasurements = {};
     for (const thing in info){
         if (thing?.includes('strMeasure')){
-            // console.log(`${thing} ${info[thing]}`)
             ingreMeasurements[`${thing}`] = info[thing];
         }
     }
@@ -21,7 +20,6 @@ const IngredientList = ({cocktailInfo}) => {
     let ingreNames = {};
     for (const thing in info){
         if (thing?.includes('strIngredient')){
-            // console.log(`${thing} ${info[thing]}`)
             ingreNames[`${thing}`] = info[thing];
         }
     }

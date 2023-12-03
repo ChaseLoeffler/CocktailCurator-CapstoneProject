@@ -1,15 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-const Suggestions = (props) => {
+
+
+const Suggestions = ({token}) => {
     const [favDrinks, setFav] = useState();
-    const [cocktailInfo,setInfo] = useState();
-    const [userComs, setComs] = useState();
+    const [cocData, setData] = useState();
+    const [listOfCData, setLData] = useState();
+    const [randomC, setRan] =useState();
 
-    useEffect(() => {
-        getFavorites();
-        getUserComments();
-    },[],[])
+    // useEffect(() => {
+    //     getFavorites();
+    // },[])
+
+    // useEffect(() => {
+    //     favoritesDetails();
+    // },[favDrinks])
+
+    useEffect(()=>{
+        getRandomCocktails();
+    },[])
+
+
 
     async function getFavorites(){
         try{
@@ -24,40 +37,70 @@ const Suggestions = (props) => {
         }
     }
 
-    async function cocktailDetails(cId){
+
+    async function favoritesDetails(){
+        let list = []
+        for (const item in favDrinks){
+            await cocktailDetails(item.cocktailId);
+            list.push(cocData)
+        }
+        setLData(list);
+    }
+
+
+
+    async function cocktailDetails(Id){
         try{
             const controller = new AbortController();
-            let response = await axios.get(`https://the-cocktail-db.p.rapidapi.com/lookup.php?i=${cId}`, {
+            let response = await axios.get(`https://the-cocktail-db.p.rapidapi.com/lookup.php?i=${Id}`, {
               headers: {
                 'X-RapidAPI-Key': '83fc370ec5mshfafd14dfd77a29fp100ab0jsn61bda3159568',
                 'X-RapidAPI-Host': 'the-cocktail-db.p.rapidapi.com'
               },
             });
-            console.log(response.data)
-            setInfo(response.data)
+            console.log(response.data);
+            setData(response.data);
             return () => controller.abort();
         } catch (err) {
             console.log(err.message)
         }
     }
 
-    async function getUserComments(){
+    async function findRecomendations(){
+    }
+
+    async function getRandomCocktails(){
         try{
             const controller = new AbortController();
-            let resp = await axios.get(`https://localhost:5001/api/Comments`, {headers: {
-                Authorization: "Bearer " + token || null
-            }});
-            console.log(resp.data)
-            setComs(resp.data)
+            let response = await axios.get(`https://the-cocktail-db.p.rapidapi.com/randomselection.php`, {
+              headers: {
+                'X-RapidAPI-Key': '83fc370ec5mshfafd14dfd77a29fp100ab0jsn61bda3159568',
+                'X-RapidAPI-Host': 'the-cocktail-db.p.rapidapi.com'
+              },
+            });
+            console.log(response.data)
+            setRan(response.data)
             return () => controller.abort();
-        }catch(err){
-            console.log(err.message);
+        } catch (err) {
+            console.log(err.message)
         }
     }
 
+    function makeToList(array){
+        const list = array?.drinks?.map((cocktail) => (
+            <div key={cocktail.idDrink}>
+              <p><Link to={`/CocktailDetails/${cocktail.idDrink}`}><img src={cocktail.strDrinkThumb}/>{cocktail.strDrink}</Link></p>
+            </div>
+        ));
+        return list;
+    }
+
+    const RandomList = makeToList(randomC)
+
     return (
         <div>
-
+            <h2>Suggested Cocktails</h2>
+            {RandomList}
         </div>
     );
 }
