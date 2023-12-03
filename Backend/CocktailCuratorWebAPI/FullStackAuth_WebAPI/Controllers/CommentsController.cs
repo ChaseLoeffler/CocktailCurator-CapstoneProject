@@ -19,6 +19,23 @@ namespace FullStackAuth_WebAPI.Controllers
             _context = context;
         }
 
+        // Get: api/<CommentsController>
+        [HttpGet, Authorize]
+        public IActionResult GetUsersComments()
+        {
+            try
+            {
+                string userId = User.FindFirstValue("id");
+
+                var comments = _context.Comments.Where(c => c.UserId.Equals(userId));
+
+                return StatusCode(200, comments);
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
 
         // POST api/<CommentsController>
         [HttpPost, Authorize]
