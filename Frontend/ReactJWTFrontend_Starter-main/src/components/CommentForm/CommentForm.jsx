@@ -45,7 +45,7 @@ const CommentForm = ({token,cocktailId,cocktailInfo}) => {
                     />
                 </label>
                 <label>
-                    Rating: {"(1-5)"}
+                    Rating: {"(1-5)⭐'s"}
                     <input
                     type='text'
                     name='rating'

@@ -13,7 +13,7 @@ const CommentList = ({cocktailCommentsData}) => {
     return (
         <div>
             <div>
-                <h2>Average User Rating:{`${cocktailCommentsData?.averageRating}`}</h2>
+                <h2>Average User Rating:{`${cocktailCommentsData?.averageRating}⭐'s`}</h2>
             </div>
             <div>
                 <h3>User Reviews</h3>
