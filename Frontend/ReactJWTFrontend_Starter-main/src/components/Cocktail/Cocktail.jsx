@@ -19,9 +19,6 @@ const Cocktail = ({cocktailId,token,cocktailInfo}) => {
                     <FavoriteButton cocktailId={cocktailId} cocktailInfo={cocktailInfo} token={token}/>
                 </div>
                 <div>
-                    <h3>Description:</h3>
-                </div>
-                <div>
                     <CocktailDescription cocktailInfo={cocktailInfo}/>
                 </div>
                 <div>

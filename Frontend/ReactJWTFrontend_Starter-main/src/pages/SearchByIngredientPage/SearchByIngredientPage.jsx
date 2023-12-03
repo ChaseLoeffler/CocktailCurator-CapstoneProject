@@ -5,13 +5,17 @@ import SearchResultsList from "../../components/SearchResultsList/SearchResultsL
 
 
 const SearchByIngredientsPage = (props) => {
-    const [search, setSearch] = useState("")
+    const [search, setSearch] = useState()
     const [cocktailData, setData] = useState([])
     const [options, setOptions] = useState([])
 
     useEffect(() => {
         getIngredients();
     },[])
+
+    useEffect(() => {
+        searchCocktailsByIngredient();
+    },[search])
 
     async function searchCocktailsByIngredient(){
         try{
@@ -48,14 +52,13 @@ const SearchByIngredientsPage = (props) => {
     const handleChange = (selctedOption) => {
         console.log("HandlingChange",selctedOption)
         setSearch(selctedOption.value);
-        searchCocktailsByIngredient();
     }
 
 
     
     return (
         <div>
-        <Select options={options} onChange={handleChange}/>
+        <Select options={options} onChange={handleChange} placeholder={"Search By Ingredent"}/>
         <div>
             <SearchResultsList cocktailData={cocktailData}/>
         </div>

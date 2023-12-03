@@ -14,7 +14,7 @@ const SearchResultsList = ({cocktailData}) => {
     ));
 
     if (list === null || cocktailData.drinks === null){
-       list = <p>No results Found</p>
+       list = <p></p>
     }
 
     return list ?(

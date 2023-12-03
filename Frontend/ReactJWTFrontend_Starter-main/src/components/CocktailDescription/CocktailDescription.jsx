@@ -59,6 +59,9 @@ const CocktailDescription = ({cocktailInfo}) => {
     }
     return (
         <div>
+            <div>
+                <h3>Description:</h3>
+            </div>
             <p>{description}</p>
         </div>
     );
