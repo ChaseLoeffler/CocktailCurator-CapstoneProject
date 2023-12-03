@@ -39,6 +39,7 @@ const HomePage = () => {
       <h2>Popular Cocktails</h2>
       <div>{popularList}</div>
       <h2>Suggested Cocktails</h2>
+      
     </div>
   );
 };
