@@ -27,8 +27,8 @@ hr {
 
 button {
   background-color: transparent;
-  border: 2px solid steelblue;
-  color: steelblue;
+  border: 2px solid #1D1A31;
+  color: #1D1A31;
   font-size: 1rem;
   font-family: inherit;
   max-width: 100px;
@@ -38,7 +38,7 @@ button {
 button:hover {
   cursor: pointer;
   color: white;
-  background-color: steelblue;
+  background-color: #1D1A31;
 }
 
 .container {

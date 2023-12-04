@@ -32,25 +32,35 @@ const IngredientList = ({cocktailInfo}) => {
     
     
     let ingredients = Object.values(ingreNames);
+    console.log(ingredients)
     
 
     let measurements = Object.values(ingreMeasurements);
-    
+    console.log(measurements)
 
-    const measList = measurements?.map((el,index)=>(
-        <p key={index}>{el}:</p>
-    ));
-    const ingrList = ingredients.map((el,index) =>(
-        <p key={index}>{el}</p>
-    ));
+
+    let wholeList = [];
+    for(let i = 0; i < ingredients.length; i++){
+        if(measurements[i]=== null || measurements[i] === undefined){
+            wholeList.push(ingredients[i])
+        }else{
+            wholeList.push(measurements[i]+":" +" "+ ingredients[i])
+        }
+    }
+    console.log(wholeList)
+
+    const list = wholeList.map((el,index) =>{
+        return(<ul key={index}>
+            <li>{el}</li>
+        </ul>);
+    });
+    console.log(list);
+
     return (
         <div>
             <ul style={{"justifyContent": "flex-start"}}>
                 <li style={{"paddingRight": "1rem"}}>
-                {measList}
-                </li>
-                <li>
-                {ingrList}
+                {list}
                 </li>
             </ul>
         </div>
