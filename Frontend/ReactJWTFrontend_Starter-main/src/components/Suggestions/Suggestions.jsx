@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import CocktailCard from '../CocktailCard/CocktailCard';
 
 
@@ -16,12 +15,12 @@ const Suggestions = ({token}) => {
     },[])
 
     useEffect(() => {
-        favoritesDetails();
+        favoritesIngredients();
     },[favDrinks])
 
-    useEffect(()=>{
-        getRandomCocktails();
-    },[])
+    // useEffect(()=>{
+    //     getRandomCocktails();
+    // },[])
 
 
 
@@ -30,22 +29,23 @@ const Suggestions = ({token}) => {
             let respon = await axios.get(`https://localhost:5001/api/Favorites`,{ headers: {
                 Authorization: "Bearer " + token || null,
                 },
-              });
-              console.log(respon.data);
-              setFav(respon.data);
+            });
+            console.log("this is list of favorites",respon.data);
+            setFav(respon.data);
         } catch(err){
             console.log(err.message);
         }
     }
 
 
-    async function favoritesDetails(){
+    async function favoritesIngredients(){
         let list = []
         for (const item in favDrinks){
             await cocktailDetails(item.cocktailId);
             list.push(cocData)
         }
         setLData(list);
+        console.log("This is the favorites Cocktail Info passed into cocktailDetails",listOfCData)
     }
 
 
@@ -96,13 +96,13 @@ const Suggestions = ({token}) => {
         return list;
     }
 
-    const RandomList = makeToList(randomC)
+    const list = makeToList(randomC)
 
     return (
         <section className='add-margin-top'>
             <h2 className='add_text-decoration'>Suggested Cocktails</h2>
             <div className='cocktail-grid'>
-                {RandomList}
+                {list}
             </div>
         </section>
     );
