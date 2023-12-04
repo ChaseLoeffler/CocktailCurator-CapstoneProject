@@ -73,7 +73,9 @@ const FavoriteButton = ({cocktailId,cocktailInfo,token}) => {
         let newEntry ={
             cocktailId:`${cocktailId}`,
             name: `${cocktailInfo?.drinks[0]?.strDrink}`,
-            thumbnailUrl: `${cocktailInfo?.drinks[0]?.strDrinkThumb}`
+            thumbnailUrl: `${cocktailInfo?.drinks[0]?.strDrinkThumb}`,
+            ingredients: `${cocktailInfo?.drinks[0]?.strIngredient1}`
+            // if I change my mind and want 3 for the multi search ${cocktailInfo?.drinks[0]?.strIngredient2},${cocktailInfo?.drinks[0]?.strIngredient3}`
         }
         addToFavorites(newEntry);
         setToggled(true)

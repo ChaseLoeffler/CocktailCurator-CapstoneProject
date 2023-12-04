@@ -5,55 +5,44 @@ import CocktailCard from '../CocktailCard/CocktailCard';
 
 
 const Suggestions = ({token}) => {
-    const [favDrinks, setFav] = useState();
+    const [ingre, setIngre] = useState();
     const [cocData, setData] = useState();
-    const [listOfCData, setLData] = useState();
     const [randomC, setRan] =useState();
-
+    
     useEffect(() => {
-        getFavorites();
+        getFavoritesIngredients();
+        
     },[])
-
-    useEffect(() => {
-        favoritesIngredients();
-    },[favDrinks])
-
+    
+    useEffect(()=>{
+        MakeRecomendedList();
+    },[ingre])
+    
     // useEffect(()=>{
-    //     getRandomCocktails();
+    //    makeRanSuggest();
     // },[])
 
 
 
-    async function getFavorites(){
+
+    async function getFavoritesIngredients(){
         try{
-            let respon = await axios.get(`https://localhost:5001/api/Favorites`,{ headers: {
+            let respon = await axios.get(`https://localhost:5001/api/Favorites/WithIngredients`,{ headers: {
                 Authorization: "Bearer " + token || null,
                 },
             });
-            console.log("this is list of favorites",respon.data);
-            setFav(respon.data);
+            console.log("this is list of favorites with ingredients",respon.data);
+            setIngre(respon.data);
         } catch(err){
             console.log(err.message);
         }
     }
 
-
-    async function favoritesIngredients(){
-        let list = []
-        for (const item in favDrinks){
-            await cocktailDetails(item.cocktailId);
-            list.push(cocData)
-        }
-        setLData(list);
-        console.log("This is the favorites Cocktail Info passed into cocktailDetails",listOfCData)
-    }
-
-
-
-    async function cocktailDetails(Id){
+    
+    async function GetCocktailsWithSameIngredients(names){
         try{
             const controller = new AbortController();
-            let response = await axios.get(`https://the-cocktail-db.p.rapidapi.com/lookup.php?i=${Id}`, {
+            let response = await axios.get(`https://the-cocktail-db.p.rapidapi.com/filter.php?i=${names}`, {
               headers: {
                 'X-RapidAPI-Key': '83fc370ec5mshfafd14dfd77a29fp100ab0jsn61bda3159568',
                 'X-RapidAPI-Host': 'the-cocktail-db.p.rapidapi.com'
@@ -67,25 +56,12 @@ const Suggestions = ({token}) => {
         }
     }
 
-    async function findRecomendations(){
+    function MakeRecomendedList(){
+        ingre?.map((el)=>(
+            GetCocktailsWithSameIngredients(el?.ingredients)
+        ));
     }
-
-    async function getRandomCocktails(){
-        try{
-            const controller = new AbortController();
-            let response = await axios.get(`https://the-cocktail-db.p.rapidapi.com/randomselection.php`, {
-              headers: {
-                'X-RapidAPI-Key': '83fc370ec5mshfafd14dfd77a29fp100ab0jsn61bda3159568',
-                'X-RapidAPI-Host': 'the-cocktail-db.p.rapidapi.com'
-              },
-            });
-            console.log(response.data)
-            setRan(response.data)
-            return () => controller.abort();
-        } catch (err) {
-            console.log(err.message)
-        }
-    }
+    
 
     function makeToList(array){
         const list = array?.drinks?.map((cocktail) => (
@@ -96,7 +72,15 @@ const Suggestions = ({token}) => {
         return list;
     }
 
-    const list = makeToList(randomC)
+    // function makeRanSuggest(){
+    //     const tenRandomSuggestions = [];
+    //     for (let i = 0; i < 10; i++){
+    //     const randomIndex = Math.floor(Math.random() * cocData?.length);
+    //     tenRandomSuggestions?.push(cocData[randomIndex])}
+    //     return tenRandomSuggestions;
+    // }
+
+    const list = makeToList(cocData)?.slice(0,10);
 
     return (
         <section className='add-margin-top'>
