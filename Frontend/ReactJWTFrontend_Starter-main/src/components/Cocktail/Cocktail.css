@@ -18,3 +18,7 @@
 .cocktail-flex{
     display: flex;
 }
+
+.discription-width{
+    max-width: 800px;
+}

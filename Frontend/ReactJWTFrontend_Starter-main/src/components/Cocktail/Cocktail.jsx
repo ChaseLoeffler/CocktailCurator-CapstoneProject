@@ -23,7 +23,7 @@ const Cocktail = ({cocktailId,token,cocktailInfo}) => {
                         </div>
                     </div>
 
-                    <div>
+                    <div className='discription-width'>
                         <CocktailDescription cocktailInfo={cocktailInfo}/>
                     </div>
                 </div>
