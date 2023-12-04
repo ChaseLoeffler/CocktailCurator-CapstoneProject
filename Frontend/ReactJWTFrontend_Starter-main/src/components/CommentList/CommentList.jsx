@@ -1,23 +1,24 @@
 import React from 'react';
+import './CommentList.css'
 
 const CommentList = ({cocktailCommentsData}) => {
 
     let list = cocktailCommentsData?.comments?.map((comment,index) => (
         <div key={index}>
-            <h5>{comment.user.userName}:</h5>
+            <h3>{comment.user.userName}:</h3>
             <p>{comment.text}</p>
-            <h6>{comment.rating} ⭐'s</h6>
+            <h4>{comment.rating} ⭐'s</h4>
         </div>
     ));
 
     return (
         <div>
-            <div>
-                <h2>Average User Rating:{`${cocktailCommentsData?.averageRating}⭐'s`}</h2>
-            </div>
-            <div>
-                <h3>User Reviews</h3>
-                {list}
+            <div className='comments-container'>
+                <h3>User Comments :</h3>
+                <div className='comment-list-div'>
+                    {list}
+                </div>
+                <hr/>
             </div>
         </div>
     );

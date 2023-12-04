@@ -1,6 +1,7 @@
 import React from 'react';
 import useCustomForm from '../../hooks/useCustomForm';
 import axios from 'axios';
+import "./CommentForm.css"
 
 
 const CommentForm = ({token,cocktailId,cocktailInfo}) => {
@@ -32,10 +33,10 @@ const CommentForm = ({token,cocktailId,cocktailInfo}) => {
     }
 
     return (
-        <div className='container'>
-            <form className='form' onSubmit={handleSubmit}>
+        <div className='comment-container'>
+            <form className='comment-form' onSubmit={handleSubmit}>
                 <label>
-                    Leave A Comment:
+                    Leave A Comment :
                     <textarea 
                     className='text-box'
                     type="text"
@@ -45,13 +46,13 @@ const CommentForm = ({token,cocktailId,cocktailInfo}) => {
                     />
                 </label>
                 <label>
-                    Rating: {"(1-5)⭐'s"}
+                    Rating : {"(1-5)⭐'s"}
                     <input
                     type='text'
                     name='rating'
                     value={formData.rating}
                     onChange={handleInputChange}
-                    style={{"display" : "inline-table",'width': '2em'}}
+                    className='rating-box'
                     />
                 </label>
                 <button>Comment</button>

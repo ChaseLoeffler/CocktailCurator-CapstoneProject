@@ -6,10 +6,10 @@ import "./Cocktail.css"
 
 
 
-const Cocktail = ({cocktailId,token,cocktailInfo}) => {
+const Cocktail = ({cocktailId,token,cocktailInfo,cocktailCommentsData}) => {
 
     return ( 
-        <div className='cocktail-container'>
+        <div>
             <div className='cocktail-flex'>
                 <div>
                     <div>
@@ -22,14 +22,16 @@ const Cocktail = ({cocktailId,token,cocktailInfo}) => {
                             <FavoriteButton cocktailId={cocktailId} cocktailInfo={cocktailInfo} token={token}/>
                         </div>
                     </div>
-
+                    <div>
+                        <h3>Average User Rating : {`${cocktailCommentsData?.averageRating}⭐'s`}</h3>
+                    </div>
                     <div className='discription-width'>
                         <CocktailDescription cocktailInfo={cocktailInfo}/>
                     </div>
                 </div>
                 
 
-                <div>
+                <div className='discription-width'>
                     <div>
                         <h3>Ingredients:</h3>
                         <IngredientsList cocktailInfo={cocktailInfo}/>

@@ -58,8 +58,8 @@ const IngredientList = ({cocktailInfo}) => {
 
     return (
         <div>
-            <ul style={{"justifyContent": "flex-start"}}>
-                <li style={{"paddingRight": "1rem"}}>
+            <ul>
+                <li>
                 {list}
                 </li>
             </ul>

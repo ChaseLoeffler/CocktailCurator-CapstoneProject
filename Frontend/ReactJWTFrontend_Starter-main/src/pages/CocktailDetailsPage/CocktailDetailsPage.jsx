@@ -49,13 +49,13 @@ const CocktailDetailsPage = (props) => {
     }
 
     return (
-        <div>
+        <div className='margin'>
             <div>
-                <Cocktail cocktailId={cocktailId} token={token} cocktailInfo={cocktailInfo}/>
+                <Cocktail cocktailId={cocktailId} token={token} cocktailInfo={cocktailInfo} cocktailCommentsData={cocktailCommentsData}/>
             </div>
-            <div className='container'>
-                <CommentList cocktailCommentsData={cocktailCommentsData}/>
+            <div>
                 <CommentForm token={token} cocktailId={cocktailId} cocktailInfo={cocktailInfo}/>
+                <CommentList cocktailCommentsData={cocktailCommentsData}/>
             </div>
         </div>
     );

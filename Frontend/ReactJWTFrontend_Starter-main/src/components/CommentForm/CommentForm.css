@@ -1,0 +1,21 @@
+.comment-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.comment-form label{
+    font-weight: bold;
+    text-align: center;
+}
+
+.rating-box{
+    display: inline-table;
+    width: 2em;
+}
+
+.text-box{
+    height: 8rem;
+    width: 80vw;
+    margin: 0 6rem;
+}

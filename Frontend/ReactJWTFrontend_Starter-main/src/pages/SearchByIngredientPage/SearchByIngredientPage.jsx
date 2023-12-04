@@ -59,7 +59,7 @@ const SearchByIngredientsPage = (props) => {
     return (
         <div>
             <div>
-                <Select options={options} onChange={handleChange} placeholder={"Search By Ingredent"} className="form"/>
+                <Select options={options} onChange={handleChange} placeholder={"Search By Ingredient"} className="form"/>
             </div>
             <div className="container">
                 <SearchResultsList cocktailData={cocktailData}/>

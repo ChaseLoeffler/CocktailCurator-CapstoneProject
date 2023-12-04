@@ -99,3 +99,7 @@ button:hover {
   background-color: #8E87C0;
   min-height: 100vh;
 }
+
+.margin {
+  margin: 0 6rem;
+}
