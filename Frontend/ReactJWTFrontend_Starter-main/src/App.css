@@ -35,7 +35,6 @@ button:hover {
 
 .container {
   margin: 0 auto;
-  max-width: 600px;
   overflow: auto;
   text-align: center;
 }
@@ -55,4 +54,26 @@ button:hover {
   margin: 5px;
   padding: 3px 7px;
   font-size: 17px;
+}
+
+.cocktail-grid{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.add-margin-top{
+  margin-top: 4rem;
+}
+
+@media (max-width: 1060px) {
+  .cocktail-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 797px) {
+  .cocktail-grid{
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

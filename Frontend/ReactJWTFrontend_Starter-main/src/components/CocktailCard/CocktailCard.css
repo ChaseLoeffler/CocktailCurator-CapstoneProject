@@ -1,0 +1,13 @@
+.cocktail-card {
+    max-width: 300px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.name-looks{
+    font-weight: 400;
+    text-decoration: none;
+    color: black;
+}

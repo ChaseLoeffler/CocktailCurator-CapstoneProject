@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import CocktailCard from '../CocktailCard/CocktailCard';
 
 
 
@@ -89,7 +90,7 @@ const Suggestions = ({token}) => {
     function makeToList(array){
         const list = array?.drinks?.map((cocktail) => (
             <div key={cocktail.idDrink}>
-              <p><Link to={`/CocktailDetails/${cocktail.idDrink}`}><img src={cocktail.strDrinkThumb}/>{cocktail.strDrink}</Link></p>
+                <CocktailCard cocktail={cocktail}/>
             </div>
         ));
         return list;
@@ -98,10 +99,12 @@ const Suggestions = ({token}) => {
     const RandomList = makeToList(randomC)
 
     return (
-        <div>
+        <section className='add-margin-top'>
             <h2>Suggested Cocktails</h2>
-            {RandomList}
-        </div>
+            <div className='cocktail-grid'>
+                {RandomList}
+            </div>
+        </section>
     );
 }
  

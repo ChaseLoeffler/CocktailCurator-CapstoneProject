@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import IngredientsList from "../../components/IngredientsList/IngredientList";
 import FavoriteButton from '../FavoriteButton/FavoriteButton';
 import CocktailDescription from '../CocktailDescription/CocktailDescription';

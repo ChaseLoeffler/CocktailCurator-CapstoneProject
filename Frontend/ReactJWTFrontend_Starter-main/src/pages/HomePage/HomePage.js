@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
-import { Link } from 'react-router-dom';
 import Suggestions from '../../components/Suggestions/Suggestions';
+import './HomePage.css'
+import CocktailCard from '../../components/CocktailCard/CocktailCard';
 
 const HomePage = () => {
   const [user, token] = useAuth();
@@ -28,7 +29,7 @@ const HomePage = () => {
 
   const popularList = popularC?.drinks?.map((cocktail) => (
     <div key={cocktail.idDrink}>
-      <p><Link to={`/CocktailDetails/${cocktail.idDrink}`}><img src={cocktail.strDrinkThumb}/>{cocktail.strDrink}</Link></p>
+      <CocktailCard cocktail={cocktail}/>
     </div>
   ));
 
@@ -37,8 +38,14 @@ const HomePage = () => {
       {console.log(user)}
       <h1>Welcome to Cocktail Curator {user.userName}!</h1>
       <p>Here you can find Popular cocktails to check out as well as cocktails suggestions based on your favorites and ratings.</p>
-      <h2>Popular Cocktails</h2>
-      <div>{popularList}</div>
+      <section>
+        <div className='add-margin-top'>
+          <h2>Popular Cocktails</h2>
+        </div>
+        <div className='cocktail-grid'>
+          {popularList}
+        </div>
+      </section>
       <Suggestions token={token}/>
     </div>
   );
