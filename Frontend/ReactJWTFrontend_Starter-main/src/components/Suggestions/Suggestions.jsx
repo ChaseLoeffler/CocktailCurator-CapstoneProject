@@ -100,7 +100,7 @@ const Suggestions = ({token}) => {
 
     return (
         <section className='add-margin-top'>
-            <h2>Suggested Cocktails</h2>
+            <h2 className='add_text-decoration'>Suggested Cocktails</h2>
             <div className='cocktail-grid'>
                 {RandomList}
             </div>

@@ -1,13 +1,20 @@
+a {
+    text-decoration-line: none;
+    color: black;
+}
+
 .cocktail-card {
     max-width: 300px;
 }
 
-a {
-    text-decoration: none;
+.cocktail-card :hover{
+    color: #B3AFD5;
+    transform: scale(.95);
 }
 
+
+
 .name-looks{
-    font-weight: 400;
-    text-decoration: none;
-    color: black;
+    font-weight: 600;
+    font-size: larger;
 }

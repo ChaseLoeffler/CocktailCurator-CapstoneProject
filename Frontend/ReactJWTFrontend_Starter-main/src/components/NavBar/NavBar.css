@@ -7,9 +7,9 @@ ul {
 li {
   font-size: 1.25rem;
 }
-
+/* #473F78 */
 .navBar {
-  background: steelblue;
+  background: #1D1A31;
   box-shadow: 4px 2px 5px gray;
   color: white;
   margin-bottom: 2rem;
@@ -25,7 +25,7 @@ li {
 
 .navBar button:hover {
   background: white;
-  color: steelblue;
+  color: #1D1A31;
   cursor: pointer;
 }
 

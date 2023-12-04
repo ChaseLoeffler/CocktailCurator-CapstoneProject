@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import Suggestions from '../../components/Suggestions/Suggestions';
-import './HomePage.css'
 import CocktailCard from '../../components/CocktailCard/CocktailCard';
 
 const HomePage = () => {
@@ -38,9 +37,10 @@ const HomePage = () => {
       {console.log(user)}
       <h1>Welcome to Cocktail Curator {user.userName}!</h1>
       <p>Here you can find Popular cocktails to check out as well as cocktails suggestions based on your favorites and ratings.</p>
+      <hr/>
       <section>
         <div className='add-margin-top'>
-          <h2>Popular Cocktails</h2>
+          <h2 className='add_text-decoration'>Popular Cocktails</h2>
         </div>
         <div className='cocktail-grid'>
           {popularList}

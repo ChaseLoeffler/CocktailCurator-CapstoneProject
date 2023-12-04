@@ -17,6 +17,14 @@ p {
   font-size: 20px;
 }
 
+hr {
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-style: solid;
+}
+
 button {
   background-color: transparent;
   border: 2px solid steelblue;
@@ -60,6 +68,7 @@ button:hover {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
+  margin: 0 3rem;
 }
 
 .add-margin-top{
@@ -68,12 +77,22 @@ button:hover {
 
 @media (max-width: 1060px) {
   .cocktail-grid{
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 797px) {
   .cocktail-grid{
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
+}
+
+.add_text-decoration{
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  padding: 1rem;
+}
+
+.background-color{
+  background-color: #8E87C0;
 }
