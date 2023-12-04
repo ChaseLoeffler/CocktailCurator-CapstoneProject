@@ -28,10 +28,10 @@ const FavoritesPage = (props) => {
 
 
     return (
-        <div>
-            <ul>
+        <div className="container">
+            <div>
                 <FavoritesList favorited={favorited}/>
-            </ul>
+            </div>
         </div>
     );
 }
