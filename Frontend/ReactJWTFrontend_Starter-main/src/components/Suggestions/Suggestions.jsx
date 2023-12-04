@@ -11,13 +11,13 @@ const Suggestions = ({token}) => {
     const [listOfCData, setLData] = useState();
     const [randomC, setRan] =useState();
 
-    // useEffect(() => {
-    //     getFavorites();
-    // },[])
+    useEffect(() => {
+        getFavorites();
+    },[])
 
-    // useEffect(() => {
-    //     favoritesDetails();
-    // },[favDrinks])
+    useEffect(() => {
+        favoritesDetails();
+    },[favDrinks])
 
     useEffect(()=>{
         getRandomCocktails();
