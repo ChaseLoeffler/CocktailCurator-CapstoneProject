@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import CocktailCard from '../CocktailCard/CocktailCard';
 
 const SearchResultsList = ({cocktailData}) => {
 
@@ -8,9 +8,9 @@ const SearchResultsList = ({cocktailData}) => {
     }
 
     let list = cocktailData?.drinks?.map(cocktail =>(
-        <ul key={cocktail?.idDrink}>
-            <li><Link to={`/CocktailDetails/${cocktail?.idDrink}`}><img src={cocktail?.strDrinkThumb}/>{cocktail?.strDrink}</Link></li>
-        </ul>
+        <div key={cocktail.idDrink}>
+            <CocktailCard cocktail={cocktail}/>
+        </div>
     ));
 
     if (list === null || cocktailData.drinks === null){
@@ -18,7 +18,7 @@ const SearchResultsList = ({cocktailData}) => {
     }
 
     return list ?(
-        <div>
+        <div className='cocktail-grid add-margin-top'>
             {list}
         </div>
     ): null;

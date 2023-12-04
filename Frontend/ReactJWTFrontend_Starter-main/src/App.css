@@ -53,6 +53,7 @@ button:hover {
   flex-direction: column;
   justify-content: flex-end;
   gap: 1rem;
+  margin: 0 10rem;
 }
 
 .form input {
@@ -62,6 +63,7 @@ button:hover {
   margin: 5px;
   padding: 3px 7px;
   font-size: 17px;
+  border-radius: .5rem;
 }
 
 .cocktail-grid{
@@ -95,4 +97,5 @@ button:hover {
 
 .background-color{
   background-color: #8E87C0;
+  min-height: 100vh;
 }

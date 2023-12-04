@@ -11,7 +11,7 @@ const IngredientList = ({cocktailInfo}) => {
     }
 
     for (const item in ingreMeasurements){
-        if (ingreMeasurements[item] === null){
+        if (ingreMeasurements[item] === null || ingreMeasurements[item] === ""){
             delete ingreMeasurements[`${item}`];
         }
     }
@@ -25,7 +25,7 @@ const IngredientList = ({cocktailInfo}) => {
     }
 
     for (const item in ingreNames){
-        if (ingreNames[item] === null){
+        if (ingreNames[item] === null || ingreNames[item] === "" ){
             delete ingreNames[`${item}`];
         }
     }

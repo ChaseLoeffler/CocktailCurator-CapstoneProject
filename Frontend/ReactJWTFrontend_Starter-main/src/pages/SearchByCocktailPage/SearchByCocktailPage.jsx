@@ -29,9 +29,8 @@ const SearchByCocktailPage = (props) => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSumbit}>
-                <label>Search Cocktails:</label>
+        <div className="container">
+            <form onSubmit={handleSumbit} className="form">
                 <input type='text' value={search} onChange={(e)=> setSearch(e.target.value)} placeholder='Search Cocktails'/>
             </form>
             <div>
